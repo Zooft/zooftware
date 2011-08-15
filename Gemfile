@@ -31,5 +31,23 @@ gem "devise"
 gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
-gem "rspec-rails", ">= 2.0.1", :group => [:development, :test]
 gem "settingslogic"
+
+gem 'foreigner'
+gem 'limerick_rake', :git=>'git://github.com/thoughtbot/limerick_rake.git'
+gem 'default_value_for'
+gem "friendly_id4", "4.0.0.beta4", :require => "friendly_id"
+
+gem "nested_form", :git=>'git://github.com/ryanb/nested_form.git'
+
+group :development do
+  gem "rspec-rails", ">= 2.5"
+  gem "nifty-generators", :group => :development, :git=>'git://github.com/mlitwiniuk/nifty-generators.git'
+end
+
+group :test do
+  gem "rspec-rails", ">= 2.5"
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+end
+
