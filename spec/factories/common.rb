@@ -5,5 +5,9 @@ FactoryGirl.define do
     password "testtest"
     password_confirmation "testtest"
   end
-
+  
+  factory :menu_group, :class=>"MenuGroup" do |f|
+    sequence(:name) { |i| "test #{i}" }
+    sequence(:identifier) { |i| "test_#{i}" }
+  end
 end

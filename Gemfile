@@ -32,6 +32,7 @@ gem "haml", ">= 3.0.0"
 gem "haml-rails"
 gem "jquery-rails"
 gem "settingslogic"
+gem "inherited_resources"
 
 gem 'foreigner'
 gem 'limerick_rake', :git=>'git://github.com/thoughtbot/limerick_rake.git'
