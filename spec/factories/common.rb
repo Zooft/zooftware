@@ -10,4 +10,10 @@ FactoryGirl.define do
     sequence(:name) { |i| "test #{i}" }
     sequence(:identifier) { |i| "test_#{i}" }
   end
+
+  factory :site, :class=>"Site" do |f|
+    sequence(:name) { |i| "test #{id}" }
+    lang_code "pl"
+
+  end
 end

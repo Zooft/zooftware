@@ -10,12 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815181111) do
+ActiveRecord::Schema.define(:version => 20110816094014) do
 
   create_table "menu_groups", :force => true do |t|
     t.string   "name"
     t.string   "identifier"
     t.boolean  "is_default", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", :force => true do |t|
+    t.string   "name"
+    t.string   "lang_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

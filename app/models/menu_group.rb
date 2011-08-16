@@ -1,7 +1,7 @@
 class MenuGroup < ActiveRecord::Base
 
   ## ASSOCIATIONS
-  # has_many :menu_items
+  # has_many :menu_items, :dependent=>:destroy
   
 
   ## VALIDATIONS
