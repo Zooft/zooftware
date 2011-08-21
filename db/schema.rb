@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110816101426) do
+ActiveRecord::Schema.define(:version => 20110821135202) do
 
   create_table "domains", :force => true do |t|
     t.string   "domain"
@@ -26,6 +26,24 @@ ActiveRecord::Schema.define(:version => 20110816101426) do
     t.string   "name"
     t.string   "identifier"
     t.boolean  "is_default", :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "resources", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "quantity"
+    t.integer  "room_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "resources", ["room_id"], :name => "index_resources_on_room_id"
+
+  create_table "rooms", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

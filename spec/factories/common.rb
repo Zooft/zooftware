@@ -20,4 +20,13 @@ FactoryGirl.define do
     sequence(:domain) { |i| "host_#{i}.test" }
     site
   end
+
+  factory :room, :class=>"Room" do
+    sequence(:name) { |n| "test #{n}"}
+  end
+
+  factory :resource, :class=>"Resource" do
+    sequence(:name) { |n| "test #{n}" }
+    quantity 1
+  end
 end
