@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821135202) do
+ActiveRecord::Schema.define(:version => 20110821140400) do
 
   create_table "domains", :force => true do |t|
     t.string   "domain"
@@ -29,6 +29,18 @@ ActiveRecord::Schema.define(:version => 20110821135202) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "content"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "pages", ["site_id", "slug"], :name => "index_pages_on_site_id_and_slug"
+  add_index "pages", ["site_id"], :name => "index_pages_on_site_id"
 
   create_table "resources", :force => true do |t|
     t.string   "name"

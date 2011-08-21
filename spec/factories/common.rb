@@ -29,4 +29,9 @@ FactoryGirl.define do
     sequence(:name) { |n| "test #{n}" }
     quantity 1
   end
+
+  factory :page, :class=>"Page" do
+    sequence(:name) { |n| "page #{n}" }
+    site
+  end
 end
