@@ -31,7 +31,13 @@ FactoryGirl.define do
   end
 
   factory :page, :class=>"Page" do
-    sequence(:name) { |n| "page #{n}" }
+    sequence(:title) { |n| "page #{n}" }
     site
+  end
+
+  factory :menu_item, :class=>"MenuItem" do
+    sequence(:title) {|t| "menu item #{t}" }
+    menu_group
+    url "/"
   end
 end

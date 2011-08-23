@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110821140400) do
+ActiveRecord::Schema.define(:version => 20110823171728) do
 
   create_table "domains", :force => true do |t|
     t.string   "domain"
@@ -29,6 +29,20 @@ ActiveRecord::Schema.define(:version => 20110821140400) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "menu_items", :force => true do |t|
+    t.string   "title"
+    t.integer  "page_id"
+    t.string   "url"
+    t.integer  "menu_group_id"
+    t.integer  "position",      :default => 0
+    t.string   "css_class"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "menu_items", ["menu_group_id"], :name => "index_menu_items_on_menu_group_id"
+  add_index "menu_items", ["page_id"], :name => "index_menu_items_on_page_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -95,5 +109,8 @@ ActiveRecord::Schema.define(:version => 20110821140400) do
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
   add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  add_foreign_key "menu_items", "menu_groups", :name => "menu_items_menu_group_id_fk"
+  add_foreign_key "menu_items", "pages", :name => "menu_items_page_id_fk"
 
 end
