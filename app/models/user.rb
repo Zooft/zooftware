@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  ## SCOPE
+  scope :admin, where('is_admin=?', true)
+  
   ## DEVISE
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -10,8 +13,8 @@ class User < ActiveRecord::Base
 
   ## ACCESSIBLE
   attr_accessible :email, :password, :password_confirmation, :remember_me, :username
-
-
+  
+  
   def to_s
     "#{self.username} (#{self.email})"
   end

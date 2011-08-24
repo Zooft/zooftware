@@ -5,3 +5,26 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+unless Site.first
+  s = Site.new
+  s.lang_code = 'pl'
+  s.name = 'Zoo.pl'
+  s.save
+  if s.domains.empty?
+    d = Domain.new
+    d.site = s
+    d.domain = 'zooftware.local'
+    d.save
+  end
+end
+
+unless User.admin.first
+  u = User.new
+  u.username = 'admin'
+  u.email = 'admin@galdomedia.p'
+  u.password = 'test_test'
+  u.password_confirmation = 'test_test'
+  u.is_admin = true
+  u.save
+end

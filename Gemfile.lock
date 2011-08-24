@@ -1,4 +1,11 @@
 GIT
+  remote: git://github.com/jellybob/activo-rails.git
+  revision: a2d3baa111a8c294218be95603601a05ac7636d9
+  branch: rails3_1
+  specs:
+    activo-rails (1.1.0)
+
+GIT
   remote: git://github.com/mlitwiniuk/nifty-generators.git
   revision: 38099697704b6eb8cade9fb901acfde2ad6381a8
   specs:
@@ -168,6 +175,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activo-rails!
   coffee-rails (~> 3.1.0.rc)
   default_value_for
   devise
