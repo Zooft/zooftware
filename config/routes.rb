@@ -1,5 +1,4 @@
 Zooftware::Application.routes.draw do
-
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout
   

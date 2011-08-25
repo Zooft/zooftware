@@ -1,0 +1,26 @@
+= content_box :headline => 'Menu Items' do |box|
+  = box.navigation do |n|
+    - n.item raw("#{@menu_group.name} &raquo;"), [:admin, @menu_group]
+    - n.item "List", [:admin, @menu_group, :menu_items], :active => true
+    - n.item "Add new", [:new, :admin, @menu_group, :menu_item]
+  %table.table
+    %thead
+      %tr
+        %th.first
+        %th Title
+        %th.last
+
+    %body
+      - for m in @menu_items
+        %tr
+          %td.first
+          %td
+            = m.title
+          %td.last
+            = link_to "show", [:admin, @menu_group, m]
+            = link_to "edit", [:edit, :admin, @menu_group, m]
+            = link_to "destroy", [:admin, @menu_group, m], :method=>:delete, :confirm=>"Are you sure?"
+
+  %p
+    = link_to "add new", [:new, :admin, @menu_group, :menu_item]
+

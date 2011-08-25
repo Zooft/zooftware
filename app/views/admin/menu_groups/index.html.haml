@@ -14,6 +14,7 @@
           %td
             = m.name
           %td.last
+            = link_to "menu items", [:admin, m, :menu_items]
             = link_to "show", [:admin, m]
             = link_to "edit", [:edit, :admin, m]
             = link_to "destroy", [:admin, m], :method=>:delete, :confirm=>"Are you sure?"

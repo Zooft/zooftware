@@ -4,7 +4,7 @@ describe MenuGroup do
   before(:each) do
     @menu_group = Factory.create(:menu_group)
   end
-  # it { should have_many(:menu_items) }
+  it { should have_many(:menu_items) }
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:identifier) }
   it { should validate_uniqueness_of(:identifier) }

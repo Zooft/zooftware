@@ -1,0 +1,24 @@
+= content_box :headline => "#{@menu_item.title}" do |box|
+  = box.navigation do |n|
+    - n.item raw("#{@menu_group.name} &raquo;"), [:admin, @menu_group]
+    - n.item "List", [:admin, @menu_group, :menu_items]
+    - n.item "Add new", [:new, :admin, @menu_group, :menu_item]
+    - n.item "#{@menu_item.title}", [:admin, @menu_group, @menu_item], :active => true
+  
+  = semantic_attributes_for @menu_item do |attr|
+    .column_left
+      = attr.attributes "" do
+        = attr.attribute :title
+        = attr.attribute :css_class
+    .column_right
+      = attr.attributes "" do
+        = attr.attribute :page
+        = attr.attribute :url
+  
+  .wat-cf
+
+  %p
+    = link_to "list", [:admin, @menu_group, :menu_items]
+    = link_to "show", [:admin, @menu_group, @menu_item]
+  .wat-cf
+

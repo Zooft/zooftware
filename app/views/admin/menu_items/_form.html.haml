@@ -1,0 +1,9 @@
+= semantic_form_for [:admin, @menu_group, @menu_item] do |f|
+  = f.inputs "", :class=>"column_left" do 
+    = f.input :title, :hint=>"Items displayable name"
+    = f.input :css_class, :hint=>"Additional CSS class for menu item"
+  = f.inputs "", :class=>"column_right" do
+    = f.input :page, :hint=>"Select page OR type in URL", :required=>false
+    = f.input :url, :hint=>"Required only, if page is not set", :required=>false, :as=>:string
+  = f.buttons do
+    = f.commit_button
