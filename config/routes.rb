@@ -6,7 +6,7 @@ Zooftware::Application.routes.draw do
   namespace :admin do
 
     resources :sites do 
-      resources :domains
+      get :set_primary_domain, :on=>:member
     end
     resources :menu_groups do
       resources :menu_items

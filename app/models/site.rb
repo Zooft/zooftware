@@ -11,6 +11,9 @@ class Site < ActiveRecord::Base
   ## VALIDATIONS
   validates :name, :lang_code, :presence=>true
 
+  ## ANAF
+  accepts_nested_attributes_for :domains, :allow_destroy=>true, :reject_if=>proc{|d| d['domain'].blank? }
+
   ## ACCESIBLE
-  attr_accessible :name, :lang_code
+  attr_accessible :name, :lang_code, :domains_attributes
 end

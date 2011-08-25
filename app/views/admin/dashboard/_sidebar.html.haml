@@ -4,3 +4,7 @@
     - for s in Site.all
       %li{:class=>(selected_site==s ? "active" : "")}
         = link_to s.name, admin_set_current_site_path(s)
+
+.block
+  %ul.navigation
+    %li= link_to t('.manage_sites'), [:admin, :sites]

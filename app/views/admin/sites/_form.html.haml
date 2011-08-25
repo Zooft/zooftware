@@ -1,0 +1,17 @@
+= semantic_nested_form_for [:admin, @site] do |f|
+  = f.inputs "", :class=>"column_left" do 
+    = f.input :name
+    = f.input :lang_code
+  .wat-cf
+  = f.inputs "Domains", :class=>"column_left" do
+    = f.semantic_fields_for :domains do |fd|
+      = fd.input :domain
+      = fd.link_to_remove "Remove this domain"
+      %br/
+      %br/
+    = f.link_to_add "Add new domain", :domains
+  = f.buttons do
+    = f.commit_button
+
+= content_for :head do
+  = javascript_include_tag "admin/nested_form"

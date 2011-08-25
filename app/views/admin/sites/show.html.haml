@@ -1,0 +1,34 @@
+= content_box :headline => @site.name do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :sites]
+    - n.item "Add new", [:new, :admin, :site]
+    - n.item "#{@site.name}", [:admin, @site], :active => true
+  
+  = semantic_attributes_for @site do |attr|
+    .column_left
+      = attr.attributes "" do
+        = attr.attribute :name
+        = attr.attribute :lang_code
+    .column_right
+  .wat-cf
+  - for d in @site.domains
+    = semantic_attributes_for d do |attr|
+      .column_left
+        = attr.attributes "" do
+          =attr.attribute :domain
+      .column_right
+        = attr.attributes "" do
+          = attr.attribute :is_primary, :display_empty => true do
+            - if d.is_primary?
+              true
+            - else
+              false,
+              = link_to "set primary", set_primary_domain_admin_site_path(@site, :domain_id=>d.id)
+  
+  .wat-cf
+
+  %p
+    = link_to "list", [:admin, :sites]
+    = link_to "edit", [:edit,:admin, @site]
+  .wat-cf
+
