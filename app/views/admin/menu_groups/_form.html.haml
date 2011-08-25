@@ -1,0 +1,6 @@
+= semantic_form_for [:admin, @menu_group] do |f|
+  = f.inputs "", :class=>"column_left" do 
+    = f.input :name
+    = f.input :identifier
+  = f.buttons do
+    = f.commit_button

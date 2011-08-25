@@ -1,2 +1,5 @@
-%h1 Admin::Dashboard#index
-%p Find me in app/views/admin/dashboard/index.html.haml
+%h1
+  - if selected_site
+    = selected_site.name
+  - else
+    = t('.no_site_selected')

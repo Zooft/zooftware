@@ -41,6 +41,9 @@ gem "friendly_id4", "4.0.0.beta4", :require => "friendly_id"
 
 gem "nested_form", :git=>'git://github.com/ryanb/nested_form.git'
 gem "activo-rails", :git=>"git://github.com/jellybob/activo-rails.git", :branch=>"rails3_1"
+gem 'formtastic'
+gem 'attrtastic'
+
 
 group :development do
   gem "rspec-rails", ">= 2.5"

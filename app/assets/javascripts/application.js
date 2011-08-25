@@ -8,5 +8,5 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require nested_form
-//= require_tree .
+//= require_tree ./frontend/
 
