@@ -1,4 +1,5 @@
 Zooftware::Application.routes.draw do
+
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
@@ -10,6 +11,9 @@ Zooftware::Application.routes.draw do
     resources :menu_groups do
       resources :menu_items
     end
+    resources :pages
+    resources :rooms
+    resources :resources
   
 
     match '/set_current_site/:id' => 'dashboard#set_current_site', :as=>:set_current_site

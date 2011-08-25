@@ -3,6 +3,7 @@ module ApplicationHelper
     menu.item "Home", admin_root_path, :active=> (request.path =~ /^#{admin_root_path}$/)
     if selected_site
       menu.item "Menu", admin_menu_groups_path, :active=> (request.path =~ /^#{admin_menu_groups_path}/)
+      menu.item "Pages", admin_pages_path, :active=> (request.path =~ /^#{admin_pages_path}/)
     end
   end
 

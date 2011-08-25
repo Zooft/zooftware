@@ -1,0 +1,18 @@
+= content_box :headline => "#{@page.title}" do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :pages]
+    - n.item "Add new", [:new, :admin, :page]
+    - n.item "#{@page.title}", [:admin, @page], :active => true
+  
+  = semantic_attributes_for @page do |attr|
+    = attr.attributes "" do
+      = attr.attribute :title
+      = attr.attribute :content
+  
+  .wat-cf
+
+  %p
+    = link_to "list", [:admin, :pages]
+    = link_to "edit", [:edit,:admin, @page]
+  .wat-cf
+

@@ -1,0 +1,23 @@
+= content_box :headline => 'Pages' do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :pages], :active => true
+    - n.item "Add new", [:new, :admin, :page]
+  %table.table
+    %thead
+      %tr
+        %th Title
+        %th.last
+
+    %body
+      - for p in @pages
+        %tr
+          %td
+            = p.title
+          %td.last
+            = link_to "show", [:admin, p]
+            = link_to "edit", [:edit, :admin, p]
+            = link_to "destroy", [:admin, p], :method=>:delete, :confirm=>"Are you sure?"
+
+  %p
+    = link_to "add new", [:new, :admin, :page]
+
