@@ -22,7 +22,7 @@ end
 unless User.admin.first
   u = User.new
   u.username = 'admin'
-  u.email = 'admin@galdomedia.p'
+  u.email = 'admin@galdomedia.pl'
   u.password = 'test_test'
   u.password_confirmation = 'test_test'
   u.is_admin = true

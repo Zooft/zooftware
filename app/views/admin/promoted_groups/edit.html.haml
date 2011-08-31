@@ -2,7 +2,7 @@
   = box.navigation do |n|
     - n.item "List", [:admin, :promoted_groups]
     - n.item "Add new", [:new, :admin, :promoted_group]
-    - n.item "Editing #{@promoted_group.name}", [:edit, :admin, @menu_group], :active => true
+    - n.item "Editing #{@promoted_group.name}", [:edit, :admin, @promoted_group], :active => true
   
   = render :partial=>"form"
   

@@ -1,13 +1,5 @@
 Zooftware::Application.routes.draw do
 
-  get "promoted_groups/index"
-
-  get "promoted_groups/show"
-
-  get "promoted_groups/new"
-
-  get "promoted_groups/edit"
-
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout
   
@@ -22,6 +14,9 @@ Zooftware::Application.routes.draw do
     resources :pages
     resources :rooms
     resources :resources
+    resources :promoted_groups do
+      resources :promoted_items
+    end
   
 
     match '/set_current_site/:id' => 'dashboard#set_current_site', :as=>:set_current_site

@@ -1,6 +1,7 @@
 class PromotedGroup < ActiveRecord::Base
 
   ## ASSOCIATIONS
+  has_many :promoted_items
 
   ## VALIDATIONS
   validates :name, :presence=>true

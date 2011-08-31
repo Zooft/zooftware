@@ -1,0 +1,26 @@
+= content_box :headline => "#{@promoted_item.title}" do |box|
+  = box.navigation do |n|
+    - n.item raw("#{@promoted_group.name} &raquo;"), [:admin, @promoted_group]
+    - n.item "List", [:admin, @promoted_group, :promoted_items]
+    - n.item "Add new", [:new, :admin, @promoted_group, :promoted_item]
+    - n.item "#{@promoted_item.title}", [:admin, @promoted_group, @promoted_item], :active => true
+  
+  = semantic_attributes_for @promoted_item do |attr|
+    .column_left
+      = attr.attributes "" do
+        = attr.attribute :title
+        = attr.attribute :body
+    .column_right
+      = attr.attributes "" do
+        = attr.attribute :linkable
+        = attr.attribute :image do
+          = image_tag @promoted_item.image.url(:resized)
+  
+  .wat-cf
+
+  %p
+    = link_to "list", [:admin, @promoted_group, :promoted_items]
+    = link_to "show", [:admin, @promoted_group, @promoted_item]
+    = link_to "edit", [:edit, :admin, @promoted_group, @promoted_item]
+  .wat-cf
+

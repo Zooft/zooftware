@@ -1,0 +1,15 @@
+%script{:type=>"text/javascript"}
+  var pages = new Array();
+  - for p in selected_site.pages.all
+    pages.append(['#{p.title}', #{p.id}]);
+= semantic_form_for [:admin, @promoted_group, @promoted_item] do |f|
+  = f.input :promoted_group_id, :as=>:hidden
+  = f.inputs "", :class=>"column_left" do 
+    = f.input :title, :hint=>""
+    = f.input :body, :hint=>"", :required=>false
+  = f.inputs "", :class=>"column_right" do
+    = f.input :linkable_id, :hint=>"", :required=>false, :collection=>[]
+    = f.input :linkable_type, :required=>false, :collection=>['Page'], :as=>:select
+    = f.input :image, :hint=>"", :required=>false, :hint=>@promoted_item.image_file_name
+  = f.buttons do
+    = f.commit_button

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831182959) do
+ActiveRecord::Schema.define(:version => 20110831193911) do
 
   create_table "domains", :force => true do |t|
     t.string   "domain"
@@ -63,6 +63,25 @@ ActiveRecord::Schema.define(:version => 20110831182959) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "promoted_items", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.string   "linkable_type"
+    t.integer  "linkable_id"
+    t.integer  "position",           :default => 0
+    t.string   "image_file_name"
+    t.integer  "image_file_size"
+    t.string   "image_content_type"
+    t.integer  "promoted_group_id"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "promoted_items", ["linkable_type", "linkable_id"], :name => "index_promoted_items_on_linkable_type_and_linkable_id"
+  add_index "promoted_items", ["promoted_group_id"], :name => "index_promoted_items_on_promoted_group_id"
+  add_index "promoted_items", ["site_id"], :name => "index_promoted_items_on_site_id"
 
   create_table "resources", :force => true do |t|
     t.string   "name"

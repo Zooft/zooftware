@@ -1,0 +1,13 @@
+= content_box :headline => "Editing #{@promoted_item.title}" do |box|
+  = box.navigation do |n|
+    - n.item raw("#{@promoted_group.name} &raquo;"), [:admin, @promoted_group]
+    - n.item "List", [:admin, @promoted_group, :promoted_items]
+    - n.item "Add new", [:new, :admin, @promoted_group, :promoted_item]
+    - n.item "Editing #{@promoted_item.title}", [:edit, :admin, @promoted_group, @promoted_item], :active => true
+  
+  = render :partial=>"form"
+  
+  %p
+    = link_to "list", [:admin, @promoted_group, :promoted_items]
+    = link_to "show", [:admin, @promoted_group, @promoted_item]
+
