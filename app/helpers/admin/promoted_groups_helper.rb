@@ -1,0 +1,2 @@
+module Admin::PromotedGroupsHelper
+end

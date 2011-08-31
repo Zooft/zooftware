@@ -1,5 +1,13 @@
 Zooftware::Application.routes.draw do
 
+  get "promoted_groups/index"
+
+  get "promoted_groups/show"
+
+  get "promoted_groups/new"
+
+  get "promoted_groups/edit"
+
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout
   

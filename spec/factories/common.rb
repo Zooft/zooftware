@@ -40,4 +40,10 @@ FactoryGirl.define do
     menu_group
     url "/"
   end
+
+  factory :promoted_group, :class=>"PromotedGroup" do
+    sequence(:name) {|n| "promoted group #{n}" }
+    sequence(:identifier) {|i| "promoted_group_#{i}" }
+    image_size "100x100#"
+  end
 end

@@ -1,0 +1,9 @@
+= semantic_form_for [:admin, @promoted_group] do |f|
+  = f.inputs "", :class=>"column_left" do 
+    = f.input :name
+    = f.input :identifier
+  = f.inputs "", :class=>"column_right" do
+    = f.input :image_size, :help=> "ie. 100x120, 200x300#"
+  
+  = f.buttons do
+    = f.commit_button

@@ -1,0 +1,24 @@
+= content_box :headline => 'Promoted Groups' do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :promoted_groups], :active => true
+    - n.item "Add new", [:new, :admin, :promoted_group]
+  %table.table
+    %thead
+      %tr
+        %th Name
+        %th.last
+
+    %body
+      - for pg in @promoted_groups
+        %tr
+          %td
+            = pg.name
+          %td.last
+            = link_to "menu items", [:admin, pg, :promoted_items]
+            = link_to "show", [:admin, pg]
+            = link_to "edit", [:edit, :admin, pg]
+            = link_to "destroy", [:admin, pg], :method=>:delete, :confirm=>"Are you sure?"
+
+  %p
+    = link_to "add new", [:new, :admin, :promoted_group]
+
