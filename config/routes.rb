@@ -1,6 +1,10 @@
 Zooftware::Application.routes.draw do
   
-    get "pages/show"
+  resources :events, :only=>[:index, :show]
+
+  resources :blog_entries, :only=>[:index, :show], :path=>"blog"
+
+  resources :faq_entries, :only=>[:index], :path=>"faq"
 
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout

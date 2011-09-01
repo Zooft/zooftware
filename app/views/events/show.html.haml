@@ -1,0 +1,8 @@
+#content
+  .doubleColumn
+    #article.section
+      .event_date
+        = @event.event_date
+      %h1= @event.name
+      = raw @event.description
+= render :partial=>"/shared/right_column"

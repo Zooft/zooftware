@@ -1,0 +1,13 @@
+#content
+  .doubleColumn
+    #faq.section
+      %h1 FAQ 
+      - for f in @faq_entries
+        .item.shown
+          .question
+            %h3
+              = f.questions
+          .answer
+            = f.answer
+      .clear
+= render :partial=>"/shared/right_column"

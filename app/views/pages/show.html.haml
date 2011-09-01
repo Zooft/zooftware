@@ -2,4 +2,10 @@
   .doubleColumn
     #article.section
       %h1= @page.title
+      - unless @page.image_file_name.blank?
+        .image
+          = image_tag @page.image.url(:show)
       = raw @page.content
+      
+= render :partial=>"/shared/right_column"
+

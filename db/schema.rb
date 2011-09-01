@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110901203037) do
+ActiveRecord::Schema.define(:version => 20110901211555) do
 
   create_table "blog_entries", :force => true do |t|
     t.string   "title"
@@ -21,6 +21,10 @@ ActiveRecord::Schema.define(:version => 20110901203037) do
     t.string   "slug"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "blog_entries", ["site_id"], :name => "index_blog_entries_on_site_id"
@@ -43,6 +47,10 @@ ActiveRecord::Schema.define(:version => 20110901203037) do
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "events", ["site_id"], :name => "index_events_on_site_id"
@@ -89,6 +97,10 @@ ActiveRecord::Schema.define(:version => 20110901203037) do
     t.integer  "site_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "pages", ["site_id", "slug"], :name => "index_pages_on_site_id_and_slug"

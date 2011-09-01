@@ -44,7 +44,8 @@ gem "activo-rails", :git=>"git://github.com/jellybob/activo-rails.git", :branch=
 gem 'formtastic'
 gem 'attrtastic'
 gem 'paperclip'
-
+gem "ransack"
+gem "kaminari"
 
 group :development do
   gem "rspec-rails", ">= 2.5"
