@@ -1,0 +1,18 @@
+= content_box :headline => "#{@faq_entry.title}" do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :faq_entries]
+    - n.item "Add new", [:new, :admin, :faq_entry]
+    - n.item "#{@faq_entry.title}", [:admin, @faq_entry], :active => true
+  
+  = semantic_attributes_for @faq_entry do |attr|
+    = attr.attributes "" do
+      = attr.attribute :question
+      = attr.attribute :answer
+  
+  .wat-cf
+
+  %p
+    = link_to "list", [:admin, :faq_entries]
+    = link_to "edit", [:edit,:admin, @faq_entry]
+  .wat-cf
+

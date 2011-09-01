@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :get_current_site
   helper_method :current_site
+  before_filter :get_menu_groups
 
   def current_site
     @current_domain ||= Domain.find_by_domain(request.host)
@@ -30,4 +31,10 @@ class ApplicationController < ActionController::Base
     current_site
   end
   private :get_current_site
+
+  def get_menu_groups
+    @menu = {}
+    @menu[:top_group] = MenuGroup.find_by_identifier('top_group')
+    @menu[:footer_group] = MenuGroup.find_by_identifier('footer_group')
+  end
 end

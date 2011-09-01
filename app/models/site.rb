@@ -5,8 +5,11 @@ class Site < ActiveRecord::Base
           :class_name=>"Domain", 
           :conditions=>['domains.is_primary=?', true]
   has_many :domains, :dependent=>:destroy
-  # has_many :menu_items, :dependent=>:destroy
+  has_many :menu_items, :dependent=>:destroy
   has_many :pages, :dependent=>:destroy
+  has_many :blog_entries, :dependent=>:destroy
+  has_many :events, :dependent=>:destroy
+  has_many :faq_entries, :dependent=>:destroy
 
   ## VALIDATIONS
   validates :name, :lang_code, :presence=>true

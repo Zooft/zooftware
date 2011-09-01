@@ -4,7 +4,6 @@ class Admin::PromotedItemsController < Admin::ApplicationController
   belongs_to :promoted_group
 
   def create
-    logger.info "create !!!!!!!!!!!"
     params[:promoted_item] ||= {}
     params[:promoted_item][:promoted_group_id] = @promoted_group.id
     @promoted_item = PromotedItem.new(params[:promoted_item])

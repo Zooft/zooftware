@@ -1,3 +1,22 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome #slider.scrollable {
+  padding: 0px;
+  margin: 15px;
+	/* required settings */
+	position:relative;
+	overflow:hidden;
+	width: 610px;
+	height:370px;
+  .items {
+    /* this cannot be too large */
+    width:20000em ;
+    position:absolute;
+    div {
+      float: left;
+    }
+  }
+}
+

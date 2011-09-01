@@ -1,21 +1,43 @@
 !!!
-%html
-
+%html{:xmlns => "http://www.w3.org/1999/xhtml"}
   %head
-    %title
-      = yield(:title) || "Untitled"
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    %title ZOO
     = stylesheet_link_tag "application"
-    = javascript_include_tag :defaults
+    = javascript_include_tag "application"
     = csrf_meta_tag
     = yield(:head)
-
   %body
-    #container
-      - flash.each do |name, msg|
-        = content_tag :div, msg, :id => "flash_#{name}"
+    #site.container
+      .wrapper
+        #top
+          .singleColumn
+            #logo
+              = link_to image_tag('logo.png'), root_path
+          #navi.doubleColumn
+            #top_menu
+              - if @menu[:top_group]
+                - for mi in get_menu_items(@menu[:top_group])
+                  = link_to mi.title, menu_item_path(mi), :class=>"#{'current' if request.path == menu_item_path(mi)}"
+            #account_info
+              = render :partial=>"/shared/account_links"
+            .clear
+            #top_area
+              &nbsp;
+          .clear
+        / content
+        #content{:class=>controller.controller_name}
+          = yield
+    .clear
+    #footer.container
+      .wrapper
+        #legal_notes.singleColumn
+          Korzystanie z serwisu oznacza akceptację
+          %a{:href => ""} regulaminu
+        #footer_menu.doubleColumn
+          - if @menu[:footer_group]
+            - for mi in get_menu_items(@menu[:footer_group])
+              = link_to mi.title, menu_item_path(mi)
+         
+        .clear
 
-      - if show_title?
-        %h1= yield(:title)
-
-      = yield

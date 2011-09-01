@@ -1,0 +1,23 @@
+= content_box :headline => 'FAQ entries' do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :faq_entries], :active => true
+    - n.item "Add new", [:new, :admin, :faq_entry]
+  %table.table
+    %thead
+      %tr
+        %th Question
+        %th.last
+
+    %body
+      - for fe in @faq_entries
+        %tr
+          %td
+            = fe.question
+          %td.last
+            = link_to "show", [:admin, fe]
+            = link_to "edit", [:edit, :admin, fe]
+            = link_to "destroy", [:admin, fe], :method=>:delete, :confirm=>"Are you sure?"
+
+  %p
+    = link_to "add new", [:new, :admin, :faq_entry]
+

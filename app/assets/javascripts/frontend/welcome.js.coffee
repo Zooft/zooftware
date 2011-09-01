@@ -1,3 +1,7 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$(document).ready ->
+  if $('#content').hasClass('welcome')
+    $(".scrollable").scrollable().navigator()
+    $('#slider_pagination.navi a').click ->
+      $(this).parent().find('a').removeClass('current')
+      $(this).addClass 'current'
+

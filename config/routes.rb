@@ -1,12 +1,6 @@
 Zooftware::Application.routes.draw do
-
-  get "blog_entries/index"
-
-  get "blog_entries/show"
-
-  get "blog_entries/new"
-
-  get "blog_entries/edit"
+  
+    get "pages/show"
 
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout
@@ -20,6 +14,9 @@ Zooftware::Application.routes.draw do
       resources :menu_items
     end
     resources :pages
+    resources :faq_entries
+    resources :events
+    resources :blog_entries
     resources :rooms
     resources :resources
     resources :promoted_groups do

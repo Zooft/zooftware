@@ -1,0 +1,6 @@
+= semantic_form_for [:admin, @faq_entry] do |f|
+  = f.inputs "", :class=>"" do 
+    = f.input :question
+    = f.input :answer, :input_html=>{:cols=>80, :rows=>10}
+  = f.buttons do
+    = f.commit_button

@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110831193911) do
+ActiveRecord::Schema.define(:version => 20110901203037) do
+
+  create_table "blog_entries", :force => true do |t|
+    t.string   "title"
+    t.text     "lead"
+    t.text     "content"
+    t.integer  "site_id"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "blog_entries", ["site_id"], :name => "index_blog_entries_on_site_id"
+  add_index "blog_entries", ["slug"], :name => "index_blog_entries_on_slug"
 
   create_table "domains", :force => true do |t|
     t.string   "domain"
@@ -21,6 +35,28 @@ ActiveRecord::Schema.define(:version => 20110831193911) do
   end
 
   add_index "domains", ["site_id"], :name => "index_domains_on_site_id"
+
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "event_date"
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "events", ["site_id"], :name => "index_events_on_site_id"
+
+  create_table "faq_entries", :force => true do |t|
+    t.string   "question"
+    t.text     "answer"
+    t.integer  "position",   :default => 0
+    t.integer  "site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "faq_entries", ["site_id"], :name => "index_faq_entries_on_site_id"
 
   create_table "menu_groups", :force => true do |t|
     t.string   "name"
@@ -39,10 +75,12 @@ ActiveRecord::Schema.define(:version => 20110831193911) do
     t.string   "css_class"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "site_id"
   end
 
   add_index "menu_items", ["menu_group_id"], :name => "index_menu_items_on_menu_group_id"
   add_index "menu_items", ["page_id"], :name => "index_menu_items_on_page_id"
+  add_index "menu_items", ["site_id"], :name => "index_menu_items_on_site_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -129,6 +167,8 @@ ActiveRecord::Schema.define(:version => 20110831193911) do
     t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true

@@ -1,0 +1,52 @@
+.doubleColumn
+  #user_form.section
+    %h1 Zmiana danych
+    = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html=>{:class=>"user_form", :method=>:put} ) do |f| 
+      %fieldset
+        %legend dane osobowe
+        %label.size_2
+          Imię:
+          %span.obligatory *
+        = f.text_field :first_name, :class=>"size_6"
+        %br/
+        %label.size_2
+          Nazwisko:
+          %span.obligatory *
+        = f.text_field :last_name, :class=>"size_6"
+        %br/
+        %label.size_2
+          E-mail:
+          %span.obligatory *
+        = f.text_field :email, :class=>"size_6"
+        %br/
+        %label.size_2
+          Hasło:
+        = f.password_field :password, :class=>"size_6"
+        %br/
+        %label.size_2
+          Powtórz hasło:
+        = f.password_field :password_confirmation, :class=>"size_6"
+        %br/
+        %label.size_2
+          Obecne hasło:
+          %span.obligatory *
+        = f.password_field :current_password, :class=>"size_6"
+        %label.size_2 &nbsp;
+        = f.check_box :accepts_regulation
+        Akceptuję
+        %a{:href => ""} regulamin
+        %br/
+        %label.size_2 &nbsp;
+        %span.obligatory *
+        \- pola obowiązkowe
+        %br/
+        %label.size_2 &nbsp;
+        %input{:id => "", :type => "submit", :value => "zmień dane"}/
+        %input{:id => "", :type => "reset", :value => "wyczyść"}/
+    %h3
+      Usuń konto
+    %p
+      = link_to "Usuń konto", registration_path(resource_name), :confirm => "Jesteś pewny?", :method => :delete %>.</p>
+
+
+= render :partial=>"/shared/right_column"

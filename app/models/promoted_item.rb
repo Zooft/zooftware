@@ -1,5 +1,8 @@
 class PromotedItem < ActiveRecord::Base
 
+  ## SCOPES
+  scope :ordered, order('position ASC')
+
   ## ASSOCIATIONS
   belongs_to :promoted_group
   belongs_to :site
@@ -13,7 +16,7 @@ class PromotedItem < ActiveRecord::Base
 
 
   ## ACCESSIBLE
-  attr_accessible :title, :content, :position, :image, :body, :promoted_group_id
+  attr_accessible :title, :content, :position, :image, :body, :promoted_group_id, :linkable_type, :linkable_id
 
   ## HACKS
   alias_method :attributes_without_attachment=, :attributes=

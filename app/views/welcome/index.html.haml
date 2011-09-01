@@ -1,2 +1,81 @@
-%h1 Welcome#index
-%p Find me in app/views/welcome/index.html.haml
+.doubleColumn
+  #slider.section.scrollable
+    - if true or @promoted[:top_group]
+      #slides.items
+        .slide
+          .image
+            %a{:href => ""}
+              %img{:alt => "title", :src => "images/temporary/slider_image_610x370.jpg"}/
+          .title
+            %h2
+              %a{:href => ""} Ut vitae vestibulum nisl
+          .lead
+            %a{:href => ""} Phasellus non sapien in velit lacinia consequat. Lorem ipsum dolor sit amet
+        .slide
+          .image
+            %a{:href => ""}
+              %img{:alt => "title", :src => "images/temporary/slider_image_610x370.jpg"}/
+          .title
+            %h2
+              %a{:href => ""} adasdasdas
+          .lead
+            %a{:href => ""} Phasellus non sapien in velit lacinia consequat. Lorem ipsum dolor sit amet
+      #slider_pagination.navi
+        %a.current{:href => "#0"} 1
+        %a{:href => "#1"} 2
+        .clear
+  - if @events and not @events.blank?
+    #events.section
+      %h2 Wydarzenia
+      .event
+        .link
+          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
+        .date 22 sierpnia 2011
+        .clear
+      .event
+        .link
+          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
+        .date 22 sierpnia 2011
+        .clear
+      .event
+        .link
+          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
+        .date 22 sierpnia 2011
+        .clear
+      .event
+        .link
+          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
+        .date 22 sierpnia 2011
+        .clear
+  - if @promoted[:bottom_group]
+    #boxes.section
+      .box.first
+        .title
+          %h3 Coworking fits all people in ancient Armenia
+        .image
+          %a{:href => ""}
+            %img{:alt => "title", :src => "images/temporary/box_image_180x150.jpg"}/
+        .lead
+          Pellentesque ligula velit, semper at adipiscing non, facilisis non diam. Phasellus facilisis, nisl eu pellentesum egestas, sem leo luctus dolor, sit amet pellentesque quam ante at lorem.
+          %a{:href => ""} więcej...
+      .box
+        .title
+          %h3 Coworking fits
+        .image
+          %a{:href => ""}
+            %img{:alt => "title", :src => "images/temporary/box_image_180x150.jpg"}/
+        .lead
+          Pellentesque ligula velit, semper at adipiscing non, facilisis non diam. Phasellus facilisis, nisl eu pellentesum egestas, sem leo luctus dolor, sit amet pellentesque quam ante at lorem.
+          %a{:href => ""} więcej...
+      .box
+        .title
+          %h3 Coworking fits all people in ancient Armenia
+        .image
+          %a{:href => ""}
+            %img{:alt => "title", :src => "images/temporary/box_image_180x150.jpg"}/
+        .lead
+          Pellentesque ligula velit, semper at adipiscing non, facilisis non diam. Phasellus facilisis, nisl eu pellentesum egestas, sem leo luctus dolor, sit amet pellentesque quam ante at lorem.
+          %a{:href => ""} więcej...
+      .clear
+= render :partial=>"/shared/right_column"
+.clear

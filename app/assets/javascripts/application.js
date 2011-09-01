@@ -8,5 +8,9 @@
 //= require jquery_ujs
 //= require jquery-ui
 //= require nested_form
+//= require jquery.tools.min.js
+//= require ./cufon/cufon-yui
+//= require ./cufon/Futura_LT_Medium_400.font.js
+//= require ./cufon/Futura_T_OT_500.font.js
 //= require_tree ./frontend/
 
