@@ -1,0 +1,7 @@
+= semantic_form_for [:admin, @blog_entry] do |f|
+  = f.inputs "", :class=>"" do 
+    = f.input :title
+    = f.input :lead, :input_html=>{:cols=>80, :rows=>5}
+    = f.input :content, :input_html=>{:cols=>80, :rows=>10}
+  = f.buttons do
+    = f.commit_button

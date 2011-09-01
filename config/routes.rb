@@ -1,5 +1,13 @@
 Zooftware::Application.routes.draw do
 
+  get "blog_entries/index"
+
+  get "blog_entries/show"
+
+  get "blog_entries/new"
+
+  get "blog_entries/edit"
+
   devise_for :users
   match 'logout' => 'user_sessions#destroy', :as => :logout
   

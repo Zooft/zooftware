@@ -1,0 +1,11 @@
+= content_box :headline => "Editing #{@blog_entry.title}" do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :blog_entries]
+    - n.item "Add new", [:new, :admin, :blog_entry]
+    - n.item "Editing #{@blog_entry.title}", [:edit, :admin, @blog_entry], :active => true
+  
+  = render :partial=>"form"
+  
+  %p
+    = link_to "list", [:admin, :blog_entries]
+    = link_to "show", [:admin, @blog_entry]

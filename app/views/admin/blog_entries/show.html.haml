@@ -1,0 +1,20 @@
+= content_box :headline => "#{@blog_entry.title}" do |box|
+  = box.navigation do |n|
+    - n.item "List", [:admin, :blog_entries]
+    - n.item "Add new", [:new, :admin, :blog_entry]
+    - n.item "#{@blog_entry.title}", [:admin, @blog_entry], :active => true
+  
+  = semantic_attributes_for @blog_entry do |attr|
+    = attr.attributes "" do
+      = attr.attribute :title
+      = attr.attribute :slug
+      = attr.attribute :lead
+      = attr.attribute :content
+  
+  .wat-cf
+
+  %p
+    = link_to "list", [:admin, :blog_entries]
+    = link_to "edit", [:edit,:admin, @blog_entry]
+  .wat-cf
+
