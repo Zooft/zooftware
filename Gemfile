@@ -11,8 +11,8 @@ gem 'mysql2'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
-  gem 'sass-rails', "~> 3.1"
-  gem 'coffee-rails', "~> 3.1"
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'uglifier'
 end
 
@@ -40,7 +40,7 @@ gem 'default_value_for'
 gem "friendly_id4", "4.0.0.beta4", :require => "friendly_id"
 
 gem "nested_form", :git=>'git://github.com/ryanb/nested_form.git'
-gem "activo-rails", :git=>"git://github.com/jellybob/activo-rails.git", :branch=>"rails3_1"
+gem "activo-rails", :git=>"git://github.com/mlitwiniuk/activo-rails.git", :branch=>"rails3_1"
 gem 'formtastic'
 gem 'attrtastic'
 gem 'paperclip'

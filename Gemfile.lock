@@ -1,6 +1,6 @@
 GIT
-  remote: git://github.com/jellybob/activo-rails.git
-  revision: a2d3baa111a8c294218be95603601a05ac7636d9
+  remote: git://github.com/mlitwiniuk/activo-rails.git
+  revision: 73aa56a10f12655a3299acb45834121e34c09d08
   branch: rails3_1
   specs:
     activo-rails (1.1.0)
@@ -193,7 +193,7 @@ PLATFORMS
 DEPENDENCIES
   activo-rails!
   attrtastic
-  coffee-rails (~> 3.1)
+  coffee-rails
   default_value_for
   devise
   factory_girl_rails
@@ -213,7 +213,7 @@ DEPENDENCIES
   rails (= 3.1)
   ransack
   rspec-rails (>= 2.5)
-  sass-rails (~> 3.1)
+  sass-rails
   settingslogic
   shoulda-matchers
   uglifier
