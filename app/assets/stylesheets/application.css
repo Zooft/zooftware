@@ -6,3 +6,6 @@
  * require ./frontend/style.css
  *= require_tree ./frontend/
 */
+#twitter_feed ul{
+  list-style: none;
+}
