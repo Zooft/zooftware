@@ -5,4 +5,5 @@ tmp/
 .sass-cache/
 *.un~
 public/system/
+public/assets/
 config/database.yml
