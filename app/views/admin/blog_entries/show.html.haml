@@ -8,6 +8,8 @@
     = attr.attributes "" do
       = attr.attribute :title
       = attr.attribute :slug
+      = attr.attribute :image do
+        = image_tag @blog_entry.image.url(:show)
       = attr.attribute :lead
       = attr.attribute :content
   

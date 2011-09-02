@@ -1,22 +1,23 @@
-#content
-  .doubleColumn
-    #article_list.section
-      %h1 Lista wpisów
-      - for be in @blog_entries
-        .item
-          .image
-            = link_to image_tag(be.image.url(:list)), blog_entry_path(be)
-          .content
-            .title
-              %h2
-                = link_to be.title, blog_entry_path(be)
-            .lead
-              - unless be.lead.blank?
-                = raw be.lead
-              - else
-                = raw be.content
-            .link
-              = link_to "więcej...", blog_entry_path(be)
-      = paginate @blog_entries
-      .clear
+.doubleColumn
+  #article_list.section
+    %h1 Lista wpisów
+    - for be in @blog_entries
+      .item
+        .image
+          = link_to image_tag(be.image.url(:list)), blog_entry_path(be)
+        .content
+          .title
+            %h2
+              = link_to be.title, blog_entry_path(be)
+          .lead
+            - unless be.lead.blank?
+              = raw be.lead
+            - else
+              = raw be.content
+          .link
+            = link_to "więcej...", blog_entry_path(be)
+        .clear
+    = paginate @blog_entries
+    .clear
 = render :partial=>"/shared/right_column"
+.clear

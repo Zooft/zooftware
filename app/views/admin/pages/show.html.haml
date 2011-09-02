@@ -7,6 +7,8 @@
   = semantic_attributes_for @page do |attr|
     = attr.attributes "" do
       = attr.attribute :title
+      = attr.attribute :image do
+        = image_tag @page.image.url(:show)
       = attr.attribute :content
   
   .wat-cf

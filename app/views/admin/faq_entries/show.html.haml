@@ -1,8 +1,8 @@
-= content_box :headline => "#{@faq_entry.title}" do |box|
+= content_box :headline => "#{@faq_entry.question}" do |box|
   = box.navigation do |n|
     - n.item "List", [:admin, :faq_entries]
     - n.item "Add new", [:new, :admin, :faq_entry]
-    - n.item "#{@faq_entry.title}", [:admin, @faq_entry], :active => true
+    - n.item "#{@faq_entry.question}", [:admin, @faq_entry], :active => true
   
   = semantic_attributes_for @faq_entry do |attr|
     = attr.attributes "" do

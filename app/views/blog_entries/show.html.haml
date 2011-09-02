@@ -1,11 +1,10 @@
-#content
-  .doubleColumn
-    #article.section
-      %h1= @blog_entry.title
-      - unless @blog_entry.image_file_name.blank?
-        .image
-          = image_tag @blog_entry.image.url(:show)
-      = raw @blog_entry.content
+.doubleColumn
+  #article.section
+    %h1= @blog_entry.title
+    - unless @blog_entry.image_file_name.blank?
+      .image
+        = image_tag @blog_entry.image.url(:show)
+    = raw @blog_entry.content
       
 = render :partial=>"/shared/right_column"
-
+.clear

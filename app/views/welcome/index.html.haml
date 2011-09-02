@@ -1,81 +1,40 @@
 .doubleColumn
   #slider.section.scrollable
-    - if true or @promoted[:top_group]
+    - if @promoted[:top_group]
       #slides.items
-        .slide
-          .image
-            %a{:href => ""}
-              %img{:alt => "title", :src => "images/temporary/slider_image_610x370.jpg"}/
-          .title
-            %h2
-              %a{:href => ""} Ut vitae vestibulum nisl
-          .lead
-            %a{:href => ""} Phasellus non sapien in velit lacinia consequat. Lorem ipsum dolor sit amet
-        .slide
-          .image
-            %a{:href => ""}
-              %img{:alt => "title", :src => "images/temporary/slider_image_610x370.jpg"}/
-          .title
-            %h2
-              %a{:href => ""} adasdasdas
-          .lead
-            %a{:href => ""} Phasellus non sapien in velit lacinia consequat. Lorem ipsum dolor sit amet
+        - for p in get_promoted_items(@promoted[:top_group])
+          .slide
+            .image
+              = link_to image_tag(p.image.url(:resized)), p.linkable
+            .title
+              %h2
+                = link_to p.title, p.linkable
+            .lead
+              = link_to p.body, p.linkable
       #slider_pagination.navi
-        %a.current{:href => "#0"} 1
-        %a{:href => "#1"} 2
+        - get_promoted_items(@promoted[:top_group]).each_with_index do |p, idx|
+          = link_to idx+1, "##{idx}, :class=>"#{'current' if idx==0}"
         .clear
   - if @events and not @events.blank?
     #events.section
       %h2 Wydarzenia
-      .event
-        .link
-          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
-        .date 22 sierpnia 2011
-        .clear
-      .event
-        .link
-          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
-        .date 22 sierpnia 2011
-        .clear
-      .event
-        .link
-          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
-        .date 22 sierpnia 2011
-        .clear
-      .event
-        .link
-          %a{:href => ""} Curabitur placerat, tellus at malesuada tristique, magna dolor dapibus augue.
-        .date 22 sierpnia 2011
-        .clear
+      - for e in @events
+        .event
+          .link
+            = link_to e.name, e
+          .date= e.event_date
+          .clear
   - if @promoted[:bottom_group]
     #boxes.section
-      .box.first
-        .title
-          %h3 Coworking fits all people in ancient Armenia
-        .image
-          %a{:href => ""}
-            %img{:alt => "title", :src => "images/temporary/box_image_180x150.jpg"}/
-        .lead
-          Pellentesque ligula velit, semper at adipiscing non, facilisis non diam. Phasellus facilisis, nisl eu pellentesum egestas, sem leo luctus dolor, sit amet pellentesque quam ante at lorem.
-          %a{:href => ""} więcej...
-      .box
-        .title
-          %h3 Coworking fits
-        .image
-          %a{:href => ""}
-            %img{:alt => "title", :src => "images/temporary/box_image_180x150.jpg"}/
-        .lead
-          Pellentesque ligula velit, semper at adipiscing non, facilisis non diam. Phasellus facilisis, nisl eu pellentesum egestas, sem leo luctus dolor, sit amet pellentesque quam ante at lorem.
-          %a{:href => ""} więcej...
-      .box
-        .title
-          %h3 Coworking fits all people in ancient Armenia
-        .image
-          %a{:href => ""}
-            %img{:alt => "title", :src => "images/temporary/box_image_180x150.jpg"}/
-        .lead
-          Pellentesque ligula velit, semper at adipiscing non, facilisis non diam. Phasellus facilisis, nisl eu pellentesum egestas, sem leo luctus dolor, sit amet pellentesque quam ante at lorem.
-          %a{:href => ""} więcej...
+      - for p in get_promoted_items(@promoted[:bottom_group])
+        .box.first
+          .title
+            %h3= p.title
+          .image
+            = link_to image_tag(p.image.url(:resized)), p.linkable
+          .lead
+            = p.body
+            = link_to "więcej...", p.linkable
       .clear
 = render :partial=>"/shared/right_column"
 .clear

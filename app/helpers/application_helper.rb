@@ -27,6 +27,10 @@ module ApplicationHelper
   end
 
   def get_menu_items(menu)
-    menu[:footer_group].menu_items.where(:site_id=>current_site.id).ordered.all
+    menu.menu_items.where(:site_id=>current_site.id).ordered.all
+  end
+
+  def get_promoted_items(promoted_group)
+    promoted_group.promoted_items.where(:site_id=>current_site.id).ordered.all
   end
 end

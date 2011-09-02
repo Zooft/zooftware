@@ -6,6 +6,7 @@ class MenuItem < ActiveRecord::Base
   ## ASSOCIATIONS
   belongs_to :page
   belongs_to :menu_group
+  belongs_to :site
 
   ## VALIDATIONS
   validates :title, :menu_group_id, :presence=>true
