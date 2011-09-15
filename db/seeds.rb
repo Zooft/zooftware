@@ -26,5 +26,9 @@ unless User.admin.first
   u.password = 'test_test'
   u.password_confirmation = 'test_test'
   u.is_admin = true
-  u.save
+  u.first_name = 'Maciej'
+  u.last_name = 'Litwiniuk'
+  u.accepts_regulation = true
+  u.save!
+  u.confirm!
 end
