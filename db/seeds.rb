@@ -28,7 +28,7 @@ unless User.admin.first
   u.is_admin = true
   u.first_name = 'Zoo'
   u.last_name = 'Admin'
-  u.accepts_regulation = true
+  u.accepts_regulation = '1'
   u.save!
   u.confirm!
 end
