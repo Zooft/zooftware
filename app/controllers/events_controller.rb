@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event = current_site.events.find(param[:id])
+    @event = current_site.events.find(params[:id])
   end
 
 end
