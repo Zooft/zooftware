@@ -26,8 +26,10 @@
           .clear
   - if @promoted[:bottom_group]
     #boxes.section
+      - idx = 0
       - for p in get_promoted_items(@promoted[:bottom_group])
-        .box.first
+        - idx += 1
+        .box{:class=>"#{'first' if idx==1}"}
           .title
             %h3= p.title
           .image
