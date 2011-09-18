@@ -20,7 +20,7 @@ module ApplicationHelper
 
   def menu_item_path(mi)
     unless mi.page_id.blank?
-      "/p/#{mi.page_id}"
+      page_path(mi.page)
     else
       mi.url
     end
