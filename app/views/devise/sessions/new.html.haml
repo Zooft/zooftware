@@ -1,0 +1,28 @@
+.doubleColumn
+  #user_form.section
+    %h1 Zaloguj się
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html=>{:class=>"user_form"} ) do |f| 
+      %fieldset
+        %label.size_2
+          Email:
+          %span.obligatory *
+        = f.text_field :email, :class=>"size_6"
+        %br/
+        %label.size_2
+          Hasło:
+          %span.obligatory *
+        = f.password_field :password, :class=>"size_6"
+        %br/
+        %label.size_2 &nbsp;
+        = f.check_box :remember_me
+        Zapamiętaj mnie
+        %br/
+        %label.size_2 &nbsp;
+        %span.obligatory *
+        \- pola obowiązkowe
+        %br/
+        %label.size_2 &nbsp;
+        %input{:id => "", :type => "submit", :value => "zaloguj się"}/
+      %fieldset
+        = render :partial => "devise/shared/links" 
+= render :partial=>"/shared/right_column"

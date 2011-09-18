@@ -21,4 +21,4 @@ staging:
 
 production:
   <<: *defaults
-  database: zooftware_development
+  database: zooftware_production

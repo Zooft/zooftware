@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110901211555) do
+ActiveRecord::Schema.define(:version => 20110918130420) do
 
   create_table "blog_entries", :force => true do |t|
     t.string   "title"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20110901211555) do
   create_table "domains", :force => true do |t|
     t.string   "domain"
     t.integer  "site_id"
-    t.boolean  "is_primary"
+    t.boolean  "is_primary", :default => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,8 +101,10 @@ ActiveRecord::Schema.define(:version => 20110901211555) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "identifier"
   end
 
+  add_index "pages", ["site_id", "identifier"], :name => "index_pages_on_site_id_and_identifier", :unique => true
   add_index "pages", ["site_id", "slug"], :name => "index_pages_on_site_id_and_slug"
   add_index "pages", ["site_id"], :name => "index_pages_on_site_id"
 

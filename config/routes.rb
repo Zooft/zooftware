@@ -9,7 +9,9 @@ Zooftware::Application.routes.draw do
   resources :pages, :only=>[:show], :path=>"p"
 
   devise_for :users
-  match 'logout' => 'user_sessions#destroy', :as => :logout
+  devise_scope :user do
+    get 'logout', :to => 'devise/sessions#destroy', :as => :logout
+  end
   
   namespace :admin do
 

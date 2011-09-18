@@ -33,7 +33,7 @@
       .wrapper
         #legal_notes.singleColumn
           Korzystanie z serwisu oznacza akceptację
-          %a{:href => ""} regulaminu
+          = get_page_link 'regulamin', :title=>"regulaminu"
         #footer_menu.doubleColumn
           - if @menu[:footer_group]
             - for mi in get_menu_items(@menu[:footer_group])

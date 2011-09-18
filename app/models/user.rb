@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
          :confirmable, :lockable
   
   ## VALIDATIONS
-  validates :username, :presence=>true, :uniqueness=>true
+  # validates :username, :presence=>true, :uniqueness=>true
   validates :first_name, :last_name, :presence=>true
   validates :accepts_regulation, :acceptance=>true
 
